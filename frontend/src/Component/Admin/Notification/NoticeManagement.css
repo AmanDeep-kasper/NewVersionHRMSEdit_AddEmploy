@@ -1,0 +1,35 @@
+.quill-toolbar-light .ql-editor::before {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.quill-toolbar-dark .ql-editor::before {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.quill-toolbar-dark .ql-toolbar {
+  color: white !important;
+  /* background-color: #2c2c2c !important; */
+}
+
+.quill-toolbar-light .ql-toolbar {
+  color: rgb(172, 172, 172) !important;
+  background-color: rgb(63, 63, 63) !important;
+}
+.quill-toolbar-light .ql-snow .ql-stroke {
+  fill: none;
+  stroke: #c4c0c0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.quill-toolbar-dark .ql-snow .ql-stroke {
+  fill: none;
+  stroke: #575555;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.ql-editor {
+    min-height: 30vh;
+}

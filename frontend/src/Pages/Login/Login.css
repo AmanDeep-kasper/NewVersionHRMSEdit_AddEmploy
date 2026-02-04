@@ -1,0 +1,101 @@
+.login-wrapper {
+  height: 100vh;
+  width: 100%;
+  background: #f8f9fa;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  background: #fff;
+}
+
+.login-form-section {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.logo-box img {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+.login-title {
+  margin: 25px 0;
+  text-align: center;
+  color: var(--primaryDashColorDark);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.password-group span {
+  position: absolute;
+  right: 12px;
+  top: 55%;
+  cursor: pointer;
+  color: #777;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--primaryDashColorDark);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.forgot-link {
+  display: block;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+.footer-text {
+  margin-top: 25px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-image-section {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-image-section {
+    display: none;
+  }
+}

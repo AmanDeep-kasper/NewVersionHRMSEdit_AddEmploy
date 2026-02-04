@@ -1,0 +1,35 @@
+.navbar-ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  .navbar-ul li {
+    font-weight: bold;
+  }
+  
+  #sidebar {
+    background-image: url(../../img/DashboardObjectAdmin.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+  .taskmanagement-menue + .sub-menu {
+    background: #f0a;
+    display: none !important;
+    height: 200px;
+    width: 200px;
+    overflow-x: auto;
+    overflow-y: scroll;
+  }
+  
+  .taskmanagement-menue:focus + .sub-menu {
+    display: block;
+  }
+  /* .active-link {
+    color: rgba(66, 233, 15, 0.438) !important; 
+  } */
+  
+  .active {
+  
+  background-color: #a0a0f8e2 !important;
+  }

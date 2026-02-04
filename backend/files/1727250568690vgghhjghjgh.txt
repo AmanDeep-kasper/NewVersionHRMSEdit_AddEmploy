@@ -1,0 +1,1 @@
+<sup className="text-danger fs-6">*</sup>

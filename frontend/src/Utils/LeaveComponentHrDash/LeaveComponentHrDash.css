@@ -1,0 +1,227 @@
+/* =========================
+   CARD CONTAINER
+========================= */
+.leave-card {
+  height: 17rem;
+  padding: 1.1rem 1.3rem;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(245, 247, 250, 0.65)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(220, 220, 220, 0.55);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 🔑 prevents overflow */
+}
+
+/* =========================
+   HEADER
+========================= */
+.leave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.leave-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2c2c2c;
+}
+
+.leave-arrow {
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   GAUGE
+========================= */
+.leave-gauge {
+  flex-shrink: 0;
+  height: 80px;
+  position: relative;
+  margin: 0.5rem auto 0.25rem;
+}
+
+.leave-gauge svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gauge-center {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.gauge-center h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  color: #1f2937;
+}
+
+.gauge-center span {
+  font-size: 0.68rem;
+  opacity: 0.65;
+}
+
+/* =========================
+   KPI ROW
+========================= */
+.leave-kpis {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+  margin-bottom: 0.4rem;
+ 
+}
+
+.leave-kpis div {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  padding: 0.2rem 1rem;
+  text-align: center;
+   border: 1px solid rgba(99, 99, 253, 0.135);
+  
+}
+
+.leave-kpis strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.leave-kpis span {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+/* =========================
+   LEAVE LIST
+========================= */
+.leave-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-right: 0.25rem;
+}
+
+/* Premium scrollbar */
+.leave-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.leave-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* =========================
+   LEAVE ROW
+========================= */
+.leave-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.45rem 0.6rem;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.78rem;
+}
+
+.leave-date {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+/* =========================
+   META
+========================= */
+.leave-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.emp-name {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: #1f2937;
+}
+
+/* =========================
+   BADGES
+========================= */
+.badges {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.badge {
+  font-size: 0.62rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.badge-paid {
+  background: rgba(25, 135, 84, 0.15);
+  color: #198754;
+}
+
+.badge-sick {
+  background: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+}
+
+.badge-pending {
+  background: rgba(255, 193, 7, 0.25);
+  color: #856404;
+}
+
+.badge-approved {
+  background: rgba(13, 110, 253, 0.2);
+  color: #0d6efd;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.empty {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.8rem;
+}

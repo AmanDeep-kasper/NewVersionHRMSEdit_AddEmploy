@@ -1,0 +1,10 @@
+.ag-header-cell {
+  max-width: 100%;
+  background: linear-gradient(#1d267d, #2f58cd);
+}
+.ag-cell {
+  height: 3rem;
+}
+.ag-center-cols-viewport {
+  min-height: 100%;
+}

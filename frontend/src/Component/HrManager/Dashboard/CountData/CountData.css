@@ -1,0 +1,7 @@
+.doughnut-chart-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    /* Adjust as needed */
+    margin: 0 auto;
+}

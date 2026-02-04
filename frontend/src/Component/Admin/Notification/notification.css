@@ -1,0 +1,15 @@
+.Notification_delete{
+    width: fit-content;
+    outline: none;
+    background-color: #116262;
+    border: 1px solid #116262;
+    color: white;
+    display: block;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+.bin{
+    color: red;
+
+   
+}

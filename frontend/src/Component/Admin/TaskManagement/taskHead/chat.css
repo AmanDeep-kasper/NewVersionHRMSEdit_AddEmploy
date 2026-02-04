@@ -1,0 +1,82 @@
+/* .card {
+  max-height: 375px;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* .chat-body {
+  overflow-y: auto;
+  padding: 16px;
+} */
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chats {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.chats-right {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+
+.chat-content {
+  background-color: #f8f9fa;
+  border-radius: 16px 16px 16px 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  /* max-width: 80%; */
+  word-wrap: break-word;
+}
+
+.chat-profile-name {
+  margin-top: 4px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* .chat-footer {
+  margin-top: 20px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e5e5e5;
+} */
+
+
+
+/* ////////////////////////////// */
+
+.priority-low {
+  background-color: #28a745; /* Green for Low */
+  color: white;
+}
+
+.priority-medium {
+  background-color: #ffc107; /* Yellow for Medium */
+  color: black;
+}
+
+.priority-high {
+  background-color: #dc3545; /* Red for High */
+  color: white;
+}
+
+.priority-urgent {
+  background-color: #007bff; /* Blue for Urgent */
+  color: white;
+}
+
+.priority-default {
+  background-color: #343a40; /* Dark for Default */
+  color: white;
+}

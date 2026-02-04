@@ -1,0 +1,136 @@
+/* Main calendar grid */
+.calendar-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-radius: 10px;
+  background: #f8fafc;
+  padding: 5px;
+  overflow: visible;
+  position: relative;
+}
+
+/* Weekday header */
+.calendar-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 12px;
+  color: #64748b;
+  position: relative;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+.calendar-header::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  background-color: rgba(148, 163, 184, 0.4);
+  bottom: 0;
+}
+
+/* Each day cell */
+.calendar-day {
+  width: calc(100% / 7);
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  /* color: #0f172a; */
+  transition: 0.2s ease;
+  position: relative;
+}
+
+/* Hover effect */
+.calendar-day:hover {
+  background: #e2e8f060;
+  transform: translateY(-2px);
+}
+
+/* Empty cells */
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+/* Today */
+.calendar-day.current-light,
+.calendar-day.current-dark {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* Holiday dot */
+.holiday-dot {
+  width: 6px;
+  height: 6px;
+  background: #dc2626;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+}
+
+/* Holiday text (if used) */
+.holiday-info {
+  font-size: 11px;
+  color: #475569;
+  margin-top: 2px;
+}
+
+/* Popover container */
+.containerHolidayPopover {
+  position: relative;
+}
+
+/* Tooltip */
+.HolidayPopover {
+  position: absolute;
+  background: #0f172a;
+  color: white;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  z-index: 50;
+  display: none;
+}
+
+/* Show on hover */
+.calendar-day:hover .HolidayPopover {
+  display: block;
+}
+
+/* Tooltip items */
+.HolidayPopover div {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.HolidayPopover div:last-child {
+  border-bottom: none;
+}
+
+.today-dot {
+  width: 6px;
+  height: 6px;
+  background: #2563eb;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+}

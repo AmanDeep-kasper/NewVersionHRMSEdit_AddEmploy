@@ -1,0 +1,47 @@
+.dashboard-grid {
+    padding: 0;
+    margin: 0;
+    max-height: 100dvh;
+    min-height: 100dvh;
+    min-width: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-areas: "sidebar navbar navbar"
+        "sidebar mainbar mainbar";
+}
+
+.navbar-grid {
+    height: 3.5rem !important;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    grid-area: navbar;
+}
+
+
+.sidebarsmall {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    z-index: 2000;
+}
+
+
+.sidebar-grid {
+    position: sticky;
+    grid-area: sidebar;
+    max-height: 100vh;
+    overflow: scroll initial;
+    z-index: 90;
+    
+}
+
+.mainbar-grid {
+    height: calc(100vh - 4.5rem) !important;;
+    grid-area: mainbar;
+    overflow: auto;
+}

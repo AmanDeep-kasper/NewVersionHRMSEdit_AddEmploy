@@ -1,0 +1,306 @@
+.taskCard {
+  display: flex;
+  align-items: start;
+  padding: 8px 15px;
+  border: 1px solid #dadada;
+  background: #fff;
+  gap: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.taskCard .taskCardLeft {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #797979;
+  padding-inline: 10px;
+}
+.taskCard .taskCardLeft .assigned {
+  font-size: 13px;
+  margin: 0;
+  color: #7e7a7a;
+}
+.empinfo {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.empinfo .profilePic {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: #eae9ff;
+  border-radius: 50%;
+  justify-content: center;
+}
+.empinfo .profilePic img {
+  width: 85%;
+  border-radius: 50%;
+}
+
+.info .EmpName,
+.info .EmpPos,
+.info .EmpMail {
+  margin: 0;
+}
+.EmpName {
+  font-weight: 700;
+  font-size: 18px;
+}
+.EmpPos {
+  font-weight: 400;
+  font-size: 16px;
+}
+.EmpMail {
+  background-color: #e3f3ff;
+  color: #5c5c5c;
+  padding: 3px 12px;
+  border-radius: 10px;
+}
+
+.depart button {
+  border: 1px solid #dadada;
+  padding: 0px 12px;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.remarks {
+  margin-top: 5px;
+}
+
+.remarks h6 {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.remarks p {
+  margin: 0;
+  font-size: 13px;
+  color: #353535b2;
+}
+
+/* BOTTOM */
+
+.projectType {
+  font-weight: 700;
+  font-size: 22px;
+  position: relative;
+  min-width: 55%;
+  min-width: 193px;
+  max-width: 193px;
+  margin-top: 10px;
+}
+.projectType p {
+  margin: 0;
+}
+.projectDesc P {
+  margin: 0;
+}
+.projectDesc {
+  color: #7e7a7a;
+}
+
+.projectType div {
+  width: 15px;
+  height: 15px;
+  display: block;
+  background-color: #cdff90;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* TASK CARD RIGHT */
+
+.taskCardRight {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusBtn button {
+  padding: 6px 10px;
+  background-color: #3e3d3d;
+  border: none;
+  border-radius: 12px;
+  color: white;
+}
+
+.taskCardRight .dur,
+.taskCardRight .start_end,
+.taskCardRight .descrip {
+  margin-bottom: 10px;
+}
+
+.days,
+.start_end {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.descrip {
+  width: 100%;
+  background-color: #f3f3f3;
+  padding: 10px 15px;
+  border-radius: 12px;
+}
+
+.taskBtns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.taskBtns button:nth-child(1) {
+  display: flex;
+  align-items: center;
+  border: 1px solid #9a9a9a99;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.taskBtns span button {
+  padding: 0px 8px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+.taskBtns span button:nth-child(1) {
+  background: #3939ff;
+  color: white;
+}
+.taskBtns span button:nth-child(2) {
+  background: #c40000;
+}
+.taskBtns span button:nth-child(3) {
+  background: #e2f9ff;
+  color: #017ed8;
+}
+
+/* EXPAND BUTTON */
+.expandBtn {
+  font-weight: 800;
+  font-size: 18px;
+  border: none !important;
+  background-color: transparent;
+  bottom: 0;
+  background: #e2f9ff !important;
+  color: #017ed8 !important;
+}
+.expandBtn {
+  transform: rotate(180deg);
+}
+/* RESPONSIVE FOR TABLETS AND PHONES */
+
+@media (max-width: 575.98px) {
+  .taskCard {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .taskCard .taskCardLeft {
+    width: 100%;
+    border-right: 0px;
+    border-bottom: 1px solid #797979;
+    padding-bottom: 5px;
+  }
+
+  .taskCard .taskCardLeft .assigned {
+    font-size: 13px;
+    margin: 0;
+    color: #7e7a7a;
+  }
+
+  .empinfo .profilePic {
+    width: 55px;
+    height: 55px;
+  }
+
+  .EmpName {
+    font-size: 15px;
+  }
+  .EmpPos {
+    font-size: 13px;
+  }
+  .EmpMail {
+    font-size: 10px;
+  }
+  .depart button {
+    padding: 0px 6px;
+    font-size: 10px;
+  }
+  .projectType {
+    margin-top: 5px;
+    width: 65%;
+  }
+  .taskCardRight {
+    width: 100%;
+  }
+  .taskBtns span button {
+    padding: 0px 8px;
+  }
+  .taskBtns button:nth-child(1) {
+    padding: 7px 8px;
+  }
+  .expandBtn {
+    transform: rotate(270deg);
+  }
+}
+
+@media (min-width: 450px) and (max-width: 890px) {
+  .taskCard {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .taskCard .taskCardLeft {
+    width: 100%;
+    border-right: 0px;
+    border-bottom: 1px solid #797979;
+    padding-bottom: 5px;
+  }
+
+  .taskCard .taskCardLeft .assigned {
+    font-size: 13px;
+    margin: 0;
+    color: #7e7a7a;
+  }
+
+  .empinfo .profilePic {
+    width: 55px;
+    height: 55px;
+  }
+
+  .EmpName {
+    font-size: 18px;
+  }
+  .EmpPos {
+    font-size: 15px;
+  }
+  .EmpMail {
+    font-size: 12px;
+  }
+  .depart button {
+    padding: 0px 6px;
+    font-size: 16px;
+  }
+
+  .projectType {
+    margin-top: 5px;
+    width: 34%;
+  }
+  .taskCardRight {
+    width: 100%;
+  }
+  .expandBtn {
+    transform: rotate(270deg);
+  }
+}

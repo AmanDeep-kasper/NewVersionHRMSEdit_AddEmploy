@@ -1,0 +1,20 @@
+/* RichTextEditor.css */
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.prose-invert :where(code):not(:where([class~="not-prose"] *)) {
+  background-color: #1e293b;
+}
+
+[data-placeholder]::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #9ca3af;
+  pointer-events: none;
+  height: 0;
+}

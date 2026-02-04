@@ -1,0 +1,50 @@
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid #007bff;
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-content {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .fullscreen-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1050;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .expanded-card {
+    width: 90%;
+    height: 90%;
+    max-width: 1200px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .expanded-card .card-body {
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  

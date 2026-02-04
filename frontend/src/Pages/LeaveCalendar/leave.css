@@ -1,0 +1,70 @@
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.08) !important;
+}
+
+.badge {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.card-header {
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-light {
+    --bs-table-bg: #2c3034;
+    --bs-table-color: #e2e3e5;
+  }
+}
+
+.react-calendar {
+    position: relative;
+    padding: 1rem;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+}
+
+/* Add to leave.css or your stylesheet */
+.modal-backdrop.show {
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  }
+  
+  .modal.show .modal-dialog {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .modal-dialog {
+    max-width: 600px; /* Adjust the width as needed */
+  }
+  
+  .modal-content {
+    border-radius: 0.5rem; /* Optional: adjust to your design */
+  }
+  
+
+  .hover-bg-light:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  transition: background-color 0.15s ease;
+}
+
+.hover-bg-secondary-subtle:hover {
+  background-color: rgba(108, 117, 125, 0.15) !important;
+  transition: background-color 0.15s ease;
+}
+
+.hover-opacity-75:hover {
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.font-monospace {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Monaco", monospace;
+}
+
+.transition-all {
+  transition: all 0.15s ease;
+}

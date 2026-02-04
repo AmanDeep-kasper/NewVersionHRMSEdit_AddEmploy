@@ -1,0 +1,31 @@
+.company-form {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-form.dark-mode {
+    --bgColor: #2c2c2c;
+    --textColor: #f1f1f1;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .form-input {
+    margin-bottom: 15px;
+  }
+  
+  .form-submit-button, .form-cancel-button {
+    margin-right: 10px;
+  }
+  

@@ -1,0 +1,289 @@
+import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
+import { useTheme } from "../../../Context/TheamContext/ThemeContext";
+import { getFormattedDate } from "../../../Utils/GetDayFormatted";
+import { useSelector } from "react-redux";
+import { useViewContext } from "../../../Context/ViewContax/viewType";
+import { GiDuration } from "react-icons/gi";
+import ManagerTaskDetails from "./taskContainer/ManagerTaskDetails";
+import RequestImage from "../../../img/Request/Request.svg";
+import api from "../../../Pages/config/api";
+import { FaRegDotCircle } from "react-icons/fa";
+
+const ManagerCompletedTask = () => {
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedTask, setSelectedTask] = useState(null);
+
+  const { darkMode } = useTheme();
+  const { viewType } = useViewContext();
+  const { userData } = useSelector((state) => state.user);
+
+  const email = userData?.Email;
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const res = await api.get("/api/tasks");
+        setTasks(res.data || []);
+      } catch (err) {
+        console.error("Failed to load completed tasks:", err);
+        toast.error("Could not load completed tasks");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTasks();
+
+    // Optional: auto-refresh every 2–3 minutes
+    // const interval = setInterval(fetchTasks, 120000);
+    // return () => clearInterval(interval);
+  }, []);
+
+  const completedTasks = tasks.filter(
+    (task) => task.status === "Completed" && task.managerEmail?.Email === email
+  );
+
+  const handleCardClick = (task) => setSelectedTask(task);
+  const handleBack = () => setSelectedTask(null);
+
+  if (selectedTask) {
+    return <ManagerTaskDetails task={selectedTask} onBack={handleBack} />;
+  }
+
+  if (loading) {
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ minHeight: "60vh" }}
+      >
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (completedTasks.length === 0) {
+    return (
+      <div
+        className="d-flex flex-column align-items-center justify-content-center text-center"
+        style={{ minHeight: "70vh", padding: "2rem" }}
+      >
+        <img
+          src={RequestImage}
+          alt="No completed tasks"
+          style={{
+            width: "min(280px, 80%)",
+            height: "auto",
+            marginBottom: "1.5rem",
+          }}
+        />
+        <h5
+          className="mb-2 fw-semibold"
+          style={{ color: !darkMode ? "#e0e0e0" : "#333" }}
+        >
+          No Completed Tasks
+        </h5>
+        <p className="text-muted mb-0" style={{ maxWidth: "420px" }}>
+          There are currently no tasks marked as completed under your
+          supervision.
+        </p>
+      </div>
+    );
+  }
+
+  const getPriorityStyle = (priority) => {
+    const map = {
+      High: { bg: "#fee2e2", color: "#dc2626", border: "#fca5a5" },
+      Medium: { bg: "#fef3c7", color: "#d97706", border: "#fcd34d" },
+      Low: { bg: "#ecfdf5", color: "#059669", border: "#6ee7b7" },
+    };
+    return (
+      map[priority] || { bg: "#f3f4f6", color: "#4b5563", border: "#d1d5db" }
+    );
+  };
+
+  return (
+    <div className="container-fluid px-0 px-md-3 py-3">
+      {viewType === "card" ? (
+        <div className="row g-3">
+          {completedTasks
+            .slice()
+            .reverse()
+            .map((task) => {
+              const priorityStyle = getPriorityStyle(task.Priority);
+
+              return (
+                <div key={task._id} className="col-lg-6 col-xl-4">
+                  <div
+                    className="card h-100 shadow-sm border-0 task-card"
+                    onClick={() => handleCardClick(task)}
+                    style={{
+                      cursor: "pointer",
+                      transition: "all 0.18s ease",
+                      background: !darkMode ? "#1f2937" : "#ffffff",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      borderBottom: "3px solid #10b981", // green accent for completed
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = !darkMode
+                        ? "0 12px 24px rgba(0,0,0,0.4)"
+                        : "0 12px 24px rgba(0,0,0,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow =
+                        "0 1px 3px rgba(0,0,0,0.1)";
+                    }}
+                  >
+                    <div
+                      className="card-header d-flex justify-content-between align-items-center px-4 py-3"
+                      style={{
+                        background: !darkMode ? "#111827" : "#f8fafc",
+                        borderBottom: `1px solid ${
+                          !darkMode ? "#374151" : "#e2e8f0"
+                        }`,
+                      }}
+                    >
+                      <h6
+                        className="mb-0 fw-semibold text-truncate"
+                        style={{ maxWidth: "60%" }}
+                      >
+                        {task.taskID}
+                      </h6>
+                      <span
+                        className="badge rounded-pill px-3 py-2 fw-medium d-flex align-items-center gap-1"
+                        style={{
+                          backgroundColor: priorityStyle.bg,
+                          color: priorityStyle.color,
+                          border: `1px solid ${priorityStyle.border}`,
+                        }}
+                      >
+                        <FaRegDotCircle size={14} />
+                        {task.Priority}
+                      </span>
+                    </div>
+
+                    <div className="card-body px-4 pb-4 pt-3 d-flex flex-column">
+                      <h5
+                        className="card-title mb-3 fw-semibold"
+                        style={{ fontSize: "1.1rem" }}
+                      >
+                        {task.Taskname}
+                      </h5>
+
+                      <div className="row g-3 mb-4 small text-muted">
+                        <div className="col-6">
+                          <div className="fw-medium mb-1">Start</div>
+                          <div>{getFormattedDate(task.startDate)}</div>
+                        </div>
+                        <div className="col-6">
+                          <div className="fw-medium mb-1">Due</div>
+                          <div>{getFormattedDate(task.endDate)}</div>
+                        </div>
+                      </div>
+
+                      {/* Completed notice */}
+                      <div className="alert alert-success alert-sm mb-3 py-2 px-3">
+                        <strong>Task Completed</strong>
+                        <div className="small mt-1">
+                          This task has been successfully completed. It cannot
+                          be reopened — contact admin for any queries.
+                        </div>
+                      </div>
+
+                      <div
+                        className="mt-auto d-flex align-items-center gap-2 pt-3 border-top"
+                        style={{
+                          borderTopColor: !darkMode ? "#4b5563" : "#e5e7eb",
+                        }}
+                      >
+                        <GiDuration size={18} className="text-primary" />
+                        <span className="fw-medium">
+                          Duration: {task.duration} days
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      ) : (
+        // ────────────────────────────────────────────────
+        //                   TABLE VIEW
+        // ────────────────────────────────────────────────
+        <div
+          className="table-responsive rounded-3 shadow-sm"
+          style={{
+            border: !darkMode ? "1px solid #374151" : "1px solid #e2e8f0",
+          }}
+        >
+          <table className="table table-hover mb-0 align-middle">
+            <thead>
+              <tr style={{ background: !darkMode ? "#111827" : "#f8fafc" }}>
+                <th className="ps-4 py-3">Task</th>
+                <th className="py-3">Start Date</th>
+                <th className="py-3">Due Date</th>
+                <th className="py-3">Duration</th>
+                <th className="py-3">Priority</th>
+                <th className="py-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {completedTasks
+                .slice()
+                .reverse()
+                .map((task) => {
+                  const priorityStyle = getPriorityStyle(task.Priority);
+
+                  return (
+                    <tr
+                      key={task._id}
+                      onClick={() => handleCardClick(task)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <td className="ps-4 py-3">
+                        <div className="fw-semibold">{task.Taskname}</div>
+                        <div className="small text-muted mt-1">
+                          {task.taskID}
+                        </div>
+                      </td>
+                      <td className="py-3">
+                        {getFormattedDate(task.startDate)}
+                      </td>
+                      <td className="py-3">{getFormattedDate(task.endDate)}</td>
+                      <td className="py-3">{task.duration} days</td>
+                      <td className="py-3">
+                        <span
+                          className="badge rounded-pill px-3 py-2"
+                          style={{
+                            backgroundColor: priorityStyle.bg,
+                            color: priorityStyle.color,
+                            border: `1px solid ${priorityStyle.border}`,
+                          }}
+                        >
+                          {task.Priority}
+                        </span>
+                      </td>
+                      <td className="py-3">
+                        <span className="badge bg-success text-white px-3 py-2">
+                          Completed
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ManagerCompletedTask;

@@ -1,0 +1,17 @@
+/* .background {
+    background: ;
+} */
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotate {
+    animation: rotate 10s linear infinite;
+  }
+  

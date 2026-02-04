@@ -1,0 +1,69 @@
+.card {
+  background: #fff;
+  -webkit-box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
+  box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.card-body {
+  position: relative;
+  padding: 25px;
+}
+
+.card .card-header {
+  border-color: rgba(137, 137, 137, 0.25);
+  background-color: #fff;
+  padding: 25px;
+}
+
+.card-header:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-footer:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-footer {
+  background-color: #fff;
+  border-top: 1px solid #e6e6e6;
+  padding: 1rem;
+}
+
+/* 
+/* chart css */
+/* .dashboard-table-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.dashboard-table {
+  overflow: hidden;
+}
+
+.dashboard-table-left {
+  flex: 0.5;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+  height: 350px;
+  background-color: white;
+}
+
+.dashboard-table-right {
+  flex: 0.5;
+  margin-left: 20px;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+  height: 350px;
+  background-color: white;
+}
+
+.dashboard-table-right h5,
+.dashboard-table-left h5 {
+  height: 15%;
+}  */

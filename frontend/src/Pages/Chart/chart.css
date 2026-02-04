@@ -1,0 +1,30 @@
+.ChartCard {
+  padding: 0;
+  height: 350px;
+  border-radius: 10px;
+  /* background-color: rgba(241, 241, 241, 0.808); */
+  backdrop-filter: blur(5px);
+}
+
+.ChartCard .ChartHeader {
+  text-align: start;
+}
+
+.ChartCard .chartBody {
+  height: 100%;
+}
+
+tspan {
+  font-size: .7rem;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primaryDashColorDark) !important;
+}
+
+/* .apexcharts-yaxis-title-text {
+  padding: 0;
+  text-align: center;
+  word-spacing: .5rem;
+  font-size: .9rem;
+  letter-spacing: .2rem;
+} */

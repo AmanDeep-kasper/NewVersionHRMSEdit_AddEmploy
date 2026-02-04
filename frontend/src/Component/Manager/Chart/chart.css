@@ -1,0 +1,17 @@
+/* Task && Department CHART css */
+.chart_container {
+  /* border: 1px solid #80808073; */
+  border-radius: 13px;
+  box-shadow: 1px 1px 10px #80808073;
+  height: 350px;
+}
+
+.chart_heading {
+  align-items: center;
+  padding: 4px 10px;
+}
+
+.chart_heading h2 {
+  font-size: 21px;
+  text-align: center;
+}

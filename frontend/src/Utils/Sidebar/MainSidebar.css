@@ -1,0 +1,257 @@
+/* Sidebar main layout */
+.sidebar-main {
+  width: 260px;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  transition: width 0.2s;
+  min-height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-collapsed {
+  width: 70px !important;
+}
+.sidebar-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.sidebar-toggle-btn {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  z-index: 2;
+}
+.sidebar-header img {
+  display: block;
+  margin: 0 auto;
+}
+.sidebar-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+.sidebar-footer {
+  width: 100%;
+  text-align: center;
+  background: #f8f8f8;
+  font-size: 0.95rem;
+  color: #888;
+  padding: 0.7rem 0;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .sidebar-main {
+    width: 200px;
+  }
+  .sidebar-collapsed {
+    width: 60px !important;
+  }
+}
+@media (max-width: 600px) {
+  .sidebar-main {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    min-width: 0;
+    max-width: 320px;
+    height: 100vh;
+    z-index: 2000;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+    background: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s, width 0.2s;
+  }
+  .sidebar-main.sidebar-extended {
+    transform: translateX(0);
+  }
+  .sidebar-collapsed {
+    width: 50px !important;
+  }
+  .sidebar-toggle-btn {
+    left: 10px;
+    top: 10px;
+    z-index: 3000;
+  }
+}
+@media (max-width: 480px) {
+  .sidebar-main {
+    width: 95vw;
+    max-width: 100vw;
+  }
+}
+.navbar-ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+.navbar-ul li {
+  font-weight: bold;
+}
+
+#sidebar {
+  background-image: url(../../img/DashboardObjectAdmin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.taskmanagement-menue + .sub-menu {
+  background: #f0a;
+  display: none !important;
+  height: 200px;
+  width: 200px;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.taskmanagement-menue:focus + .sub-menu {
+  display: block;
+}
+/* .active-link {
+  color: rgba(66, 233, 15, 0.438) !important; 
+} */
+
+
+/* Add this in your CSS file */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.blinkSideMenu {
+  animation: blink 1.5s infinite;
+}
+
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+
+.hovered-nav-btns-light:hover {
+  background-color: rgb(226, 223, 223) ;
+}
+.hovered-nav-btns-dark:hover {
+  background-color: rgba(51, 50, 50, 0.89) ;
+}
+
+.hovered-nav-btns-secondary-light:hover {
+  background-color: #f3f3f3;
+}
+.hovered-nav-btns-secondary-dark:hover {
+  background-color: #64626249;
+}
+
+.headerLogoBorder::after {
+
+
+  
+  content: "";
+  height: .14rem;
+  width: 95%;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  bottom: -.5rem;
+  transform: translate(-50%);
+}
+
+.navigationPannel-dark .active {
+  background-color: #4d4d4d !important; 
+  color: blue !important;
+}
+.navigationPannel-dark  {
+  color: blue !important;
+}
+.navigationPannel-light .active {
+  background-color: #f5f5ff !important; 
+  color: blue !important;
+}
+.navigationPannel-light  {
+  color: blue !important;
+}
+
+
+.navigationPannel-dark .active .activeIcon {
+  color: #f2f2f2 !important;
+}
+.navigationPannel-dark  .activeIcon {
+  color: rgb(242, 242, 242, .9) !important;
+}
+.navigationPannel-light .active .activeIcon {
+  color:  #007aff !important;
+}
+.navigationPannel-light  .activeIcon {
+  color: #3c3c3c !important;
+}
+
+
+.navigationPannel-dark .active .activeFont {
+  color:#f2f2f2  !important;
+  font-weight: 500;
+}
+.navigationPannel-dark  .activeFont {
+  color: rgb(242, 242, 242, .6) !important;
+}
+.navigationPannel-light .active .activeFont {
+  color:  #007aff !important; 
+  font-weight: 500;
+}
+.navigationPannel-light  .activeFont {
+  color: #3c3c3c !important;
+}
+

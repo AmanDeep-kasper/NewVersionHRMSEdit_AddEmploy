@@ -1,0 +1,45 @@
+.Dash-wrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 1rem 0;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  .Dash-wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+  .EmployeeStatus {
+    grid-column-start: 2;
+    grid-column-end: 3; /* Adjust positioning for tablets */
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .Dash-wrapper {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+  .EmployeeStatus {
+    grid-row-start: auto;
+    grid-row-end: auto;
+    grid-column-start: auto; 
+    grid-column-end: auto; 
+  }
+}
+
+.dash-item {
+  text-align: center;
+  color: white;
+}
+
+.EmployeeStatus {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}

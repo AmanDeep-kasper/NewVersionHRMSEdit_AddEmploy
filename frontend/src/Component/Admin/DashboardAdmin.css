@@ -1,0 +1,22 @@
+.AdminDashBG {
+  background: url(../../img/texturetech.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 800px;
+}
+
+/* .DashboardCard {
+  background: url(../../img/pattern.png);
+  background-position: center;
+  background-size: 300px;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
+} */
+.DashboardCard {
+  background: linear-gradient(165deg, rgb(255, 255, 255), white)
+}
+
+.moreInfoLink {
+  background-color: var(--primaryDashColorDark) !important;
+  color: var(--primaryDashMenuColor) !important;
+}

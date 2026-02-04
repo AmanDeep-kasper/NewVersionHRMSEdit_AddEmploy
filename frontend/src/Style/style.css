@@ -1,0 +1,715 @@
+/* Admin css */
+
+.AdminDashBG {
+    background: url(../../img/texturetech.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 800px;
+}
+
+.DashboardCard {
+    background: url(../../img/pattern.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: repeat;
+    background-blend-mode: soft-light;
+    box-shadow: 3px 3px 5px rgb(223, 220, 220);
+    padding: 1rem;
+    border-radius: 10px;
+
+}
+
+.DashboardCard hr {
+    background-color: rgb(219, 219, 219);
+}
+
+.birthday {
+    box-shadow: 1px 1px 10px #80808073;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 12px;
+
+
+}
+
+.Upbirth {
+    background: #fff;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
+    box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
+    border-radius: 10px;
+    border: 0;
+    height: 350px;
+}
+
+
+.mainbirth {
+    overflow: auto;
+    height: 300px;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+
+}
+
+
+#search-bar {
+    /* margin-left: 15px; */
+    width: 98%;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+#search-bar div {
+    /* margin-left: 15px; */
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    #search-bar {
+        width: 95%;
+    }
+}
+
+.employee-list {
+    margin: 0 auto;
+    max-width: 1366px;
+    padding: 0 20px;
+}
+
+.employee-list-drop-down {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.employee-list-drop-down-left {
+    border-radius: 8px;
+    border: 1px solid #e5eef5;
+    background: #fff;
+    box-shadow: -1px 1px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.employee-list-drop-down-left ul,
+.employee-list-drop-down-right ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    padding: 8px;
+}
+
+.employee-list-drop-down-right ul {
+    padding: 0px;
+}
+
+.employee-list-drop-down-left ul li a,
+.employee-list-drop-down-right ul li a {
+    margin: 0 4px;
+    background: rgba(85, 112, 241, 0.15);
+
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: poppins;
+    border-radius: 4px;
+}
+
+.employee-list-drop-down-right ul li a {
+    padding: 14px 24px;
+}
+
+.employee-list-drop-down-left ul li:first-child a,
+.employee-list-drop-down-right ul li:last-child a {
+    background: #5932ea;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+#drop {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    margin-left: 32px;
+    background-color: white;
+    border: 1px solid #b3b3b3;
+}
+
+#drop svg {
+    font-size: 18px;
+}
+
+.employee-list-card-container {
+    display: flex;
+    gap: 18px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.employee-list-card {
+    width: 246px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20.418px;
+    border: 0.851px solid #98c4e1;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-image {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3.033px solid #284d79;
+    overflow: hidden;
+}
+
+.employee-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.employee-list-card h6 {
+    color: #284d79;
+    font-family: poppins;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+.employee-list-card p {
+    color: #22659a;
+    font-family: poppins;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.employee-list-card h4 {
+    border-radius: 25px;
+    background: rgba(85, 112, 241, 0.25);
+    padding: 6px 40px;
+    margin: 8px 0;
+    color: rgba(0, 0, 0, 0.9);
+    font-family: poppins;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.463px;
+}
+
+.employee-list-card-contact,
+.employee-list-card-role {
+    border-radius: 13.612px;
+    border: 0.851px solid #98c4e1;
+    background: #f9fcfe;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.employee-list-card-role {
+    background: rgba(174, 159, 229, 0.8);
+    border: none;
+}
+
+.employee-list-card-contact-mail {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+.employee-list-card-contact-mail svg {
+    font-size: 18px;
+}
+
+.employee-list-card-contact-mail p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: poppins;
+    font-size: 15px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.employee-list-card-role-department {
+    display: flex;
+    justify-content: space-between;
+}
+
+.employee-list-card-role-department p,
+.employee-list-card-role-department h3 {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.015px;
+}
+
+.employee-list-card-role-department h3 {
+    font-weight: 600;
+}
+
+.more-info {
+    position: absolute;
+    right: 8px;
+    top: 12px;
+    font-size: 20px;
+    color: #717171;
+    background-color: white;
+    z-index: 2;
+}
+
+.more-Info-option {
+    list-style: none;
+    position: absolute;
+    top: -24%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    right: 5px;
+    transition: 0.3s;
+}
+
+.more-Info-option li a {
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.more-Info-option li a svg {
+    font-size: 25px;
+    padding: 2px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.more-Info-option li a svg:hover {
+    background-color: #22649a25;
+}
+
+.info {
+    color: rgba(17, 133, 17, 0.627);
+}
+
+.edit {
+    color: #22649abd;
+}
+
+.delete {
+    color: rgba(255, 0, 0, 0.535);
+}
+
+.more-Info-option-hidden {
+    list-style: none;
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    right: 5px;
+}
+
+.employee-card-holder {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* department  folder*/
+.ag-header-cell {
+    background-color: rgb(11, 104, 209);
+    color: white;
+    height: fit-content;
+}
+
+
+/* role folder  */
+#form-submit-button button {
+    background-color: #0069d9;
+    border-color: #0069d9;
+    /* float: left; */
+
+}
+
+#form-cancel-button {
+    /* float: left; */
+    /* float:right; */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+    /* background-color: red; */
+
+}
+
+#form-cancel-button button {
+    /* float: left; */
+    /* float:right; */
+    background-color: rgb(233, 233, 233);
+    border-color: rgb(233, 233, 233);
+    color: black;
+}
+
+#form-cancel-button button:focus {
+    /* float: left; */
+    /* float:right; */
+    outline: 0;
+    box-shadow: 0;
+}
+
+#form-cancel-button-inner {
+    /* padding: 0px; */
+}
+
+#form {
+    /* background-color: blue; */
+    position: relative;
+    /* margin: 0; */
+    font-size: 15px;
+    /* box-shadow: 5px 5px 10px 10px ; */
+}
+
+#role-form-outer-div {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.form-input {
+    /* margin-right: 0 ; */
+}
+
+
+
+#role-form-title {
+    margin: 20px;
+}
+
+@media (max-width: 576px) {
+    #form-cancel-button-inner {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #role-form-title {
+        /* color: red; */
+        font-size: 22px;
+    }
+
+}
+
+
+/* login.css */
+body {
+    background-color: #2b447b;
+}
+
+#root {
+    height: auto;
+}
+
+#main-outer-div {
+    position: relative;
+    background-color: #fff;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 7%;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#logo-img {
+    text-align: center;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+#logo-div {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#title-div {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-form-input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    height: 40px;
+    margin: 10px 0 10px;
+    padding: 15px;
+    border: 1px;
+    background-color: #eef3ff;
+}
+
+.login-form-input:focus {
+    border: 1px solid rgb(226, 210, 39);
+}
+
+.login-form-input::placeholder {
+    font-weight: bold;
+    color: red;
+}
+
+#outer-login-form-div {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.login-form-input[type="submit"] {
+    background-color: #2d2ae2;
+    font-weight: bold;
+    border-width: 0px;
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.loading {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.alert {
+    font-size: 14px;
+    text-align: center;
+    color: red;
+}
+
+@media (max-width: 300px) {
+    #main-outer-div {
+        width: 50%;
+        min-width: 0px;
+    }
+}
+
+.login-bg {
+    background: linear-gradient(white, white), url(../../img/FLATiMAGE.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.login-holder {
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.568);
+    box-shadow: -3px 3px 5px rgba(202, 201, 201, 0.804);
+    border-radius: 10px;
+}
+
+/* navbnar folder */
+#main-nav {
+    /* width: 100%; */
+    height: 55px;
+    background-color: white !important;
+    -webkit-box-shadow: 0px 10px 13px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 13px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 13px -11px rgba(0, 0, 0, 0.75);
+    padding: 0px;
+    padding-right: 10px;
+
+}
+
+#nav-bar-logo {
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 0px
+}
+
+#logo-anchor {
+    padding: 0px;
+    margin: 0px;
+    /* float: left; */
+}
+
+#logout-navbar-nav {
+    /* background-color: red; */
+    width: 10%;
+    background-color: white;
+    /* margin: 10px; */
+
+
+}
+
+#toggle-switch {
+    margin-left: 20px;
+    height: 50px;
+    /* margin-top: 20px; */
+    float: right;
+    /* padding-top: 20px; */
+    display: inline-block;
+    padding-top: 15px;
+}
+
+.navbar-right-content {
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+    margin: 10px;
+}
+
+.navBar-username {
+    float: right;
+    margin-right: 30px;
+}
+
+/* salary folder */
+.ag-header-cell {
+    max-width: 100%;
+    background: linear-gradient(#1d267d, #2f58cd);
+}
+
+.ag-cell {
+    height: 3rem;
+}
+
+.ag-center-cols-viewport {
+    min-height: 100%;
+}
+
+/* end hr css */
+
+/* employee.css  */
+/* dashboard file  */
+@media (max-width: 1000px) {
+
+    .main-title-employee {
+        /* color: red !important; */
+        font-size: 14px !important;
+    }
+}
+
+
+#outer-main-div {
+    width: 100%;
+    height: 100vh;
+}
+
+#outer-nav {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+#sidebar {
+    transition: all 0.1s linear;
+    background-color: #404e67;
+    width: 240px;
+    height: 100%;
+    float: left;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+.display-none {
+    width: 0px !important;
+}
+
+.display-block {
+    width: 240px !important;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+#sidebar-top-content {
+    padding-top: 77px;
+}
+
+#main-title {
+    font-size: 20px;
+    margin: 40px 40px 30px 20px;
+    /* margin-right:1000px;  */
+    color: white;
+}
+
+#main-area {
+    /* background-color: red; */
+    height: 100%;
+    /* overflow-y: auto; */
+    /* margin-left: 240px; */
+}
+
+.sidebar-icon {
+    margin-right: 10px;
+    color: white;
+}
+
+.navbar-ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-ul li {
+    list-style-type: none;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 1000px) {
+    #sidebar {
+        width: auto;
+        width: 70px;
+        scrollbar-width: thin;
+    }
+
+    .display-block {
+        width: 70px !important;
+    }
+
+    #main-title {
+        /* margin-left: 10px; */
+        /* color: red; */
+        margin: 5px;
+    }
+
+    .navbar-ul li {
+        list-style-type: none;
+        margin-left: -40px;
+        margin-top: 20px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+
+    .sidebar-icon {
+        display: block;
+        /* margin-bottom: 10px; */
+        margin: auto;
+        /* size: 300px; */
+        /* scale: 2; */
+        height: 25px;
+        width: 20px !important;
+    }
+}
+
+
+
+

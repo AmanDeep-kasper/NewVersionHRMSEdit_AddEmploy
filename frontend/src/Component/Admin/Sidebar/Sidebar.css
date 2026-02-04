@@ -1,0 +1,27 @@
+.navbar-ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+.navbar-ul li {
+  font-weight: bold;
+}
+
+#sidebar {
+  background-image: url(../../../img/DashboardObjectAdmin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.taskmanagement-menue + .sub-menu {
+  background: #f0a;
+  display: none !important;
+  height: 200px;
+  width: 200px;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.taskmanagement-menue:focus + .sub-menu {
+  display: block;
+}

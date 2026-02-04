@@ -1,0 +1,42 @@
+.scroller {
+    scrollbar-width: thin !important;
+    scrollbar-color: #888 #f0f0f0 !important; 
+    
+    ::-webkit-scrollbar {
+        width: 8px !important; 
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f0f0f0 !important;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #888 !important; 
+        border-radius: 10px !important; 
+    }
+}
+
+
+  
+  .stickyColumn {
+    position: sticky;
+    left: 0;
+    background-color: #fff; 
+    z-index: 2; 
+    text-align: center;
+  }
+
+  .stickeyhedCol {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff; 
+    z-index: 3 !important;
+  }
+
+  .stickyHeader {
+    position: sticky;
+    top: 0;
+    background-color: #fff; 
+    z-index: 1; 
+  }
