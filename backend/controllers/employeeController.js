@@ -13,7 +13,7 @@ const {
 const { AttendanceModel } = require("../models/attendanceModel");
 
 const SALT_FECTOUR = 10;
-  
+
 
 const getAllEmployee = async (req, res) => {
   try {
@@ -119,7 +119,7 @@ const getAllEmployeeTable = async (req, res) => {
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
     const skip = (page - 1) * limit;
-    const includeFNF = (req.query.includeFNF || false); 
+    const includeFNF = (req.query.includeFNF || false);
 
     const search = (req.query.search || "").trim();
 
@@ -395,7 +395,7 @@ const getAllEmployeeBasic = async (req, res) => {
         LastName: 1,
         Email: 1,
         Account: 1,
-        department: 1 
+        department: 1
       }
     )
       .populate({
@@ -480,8 +480,8 @@ const createEmployee = async (req, res) => {
 
     const newUserID = latestUser
       ? `KASP${(parseInt(latestUser.empID.substring(4)) + 1)
-          .toString()
-          .padStart(4, "0")}`
+        .toString()
+        .padStart(4, "0")}`
       : "KASP0001";
 
     const { file } = req;
@@ -764,6 +764,60 @@ const updateEmployee = async (req, res) => {
     // ============================
     // 5️⃣ Prepare update object
     // ============================
+    // const updatedEmployees = {
+    //   Email: Email.toLowerCase(),
+    //   Account,
+    //   role: RoleID,
+    //   Gender,
+    //   FirstName,
+    //   LastName,
+    //   DOB,
+    //   ContactNo,
+    //   EmployeeCode,
+    //   department: DepartmentID,
+    //   position: PositionID,
+    //   DateOfJoining,
+    //   reportManager,
+    //   status,
+    //   LocationType,
+    //   BankName,
+    //   BankAccount,
+    //   BankIFSC,
+    //   UANNumber,
+    //   PANcardNo,
+
+    //   allowMobileLogin: normalizeEnum(
+    //     allowMobileLogin,
+    //     findEmployee.allowMobileLogin,
+    //     ["Allowed", "Not Allowed"],
+    //   ),
+
+    //   isFullandFinal: normalizeEnum(
+    //     isFullandFinal,
+    //     findEmployee.isFullandFinal,
+    //     ["Yes", "No"],
+    //   ),
+
+    //   profile: findEmployee.profile,
+    // };
+
+
+    // Edit by aman
+    // 🔹 Clean optional unique fields (VERY IMPORTANT)
+    const cleanOptional = (val) => {
+      if (val === undefined || val === null) return undefined;
+      if (typeof val === "string" && val.trim() === "") return undefined;
+      if (val === "N/A") return undefined;
+      return val;
+    };
+
+    const cleanBankAccount = cleanOptional(BankAccount);
+    const cleanBankIFSC = cleanOptional(BankIFSC);
+    const cleanUANNumber = cleanOptional(UANNumber);
+    const cleanPANcardNo = cleanOptional(PANcardNo);
+
+
+    // Edit by aman 
     const updatedEmployees = {
       Email: Email.toLowerCase(),
       Account,
@@ -781,25 +835,28 @@ const updateEmployee = async (req, res) => {
       status,
       LocationType,
       BankName,
-      BankAccount,
-      BankIFSC,
-      UANNumber,
-      PANcardNo,
+
+      ...(cleanBankAccount && { BankAccount: cleanBankAccount }),
+      ...(cleanBankIFSC && { BankIFSC: cleanBankIFSC }),
+      ...(cleanUANNumber && { UANNumber: cleanUANNumber }),
+      ...(cleanPANcardNo && { PANcardNo: cleanPANcardNo }),
 
       allowMobileLogin: normalizeEnum(
         allowMobileLogin,
         findEmployee.allowMobileLogin,
-        ["Allowed", "Not Allowed"],
+        ["Allowed", "Not Allowed"]
       ),
 
       isFullandFinal: normalizeEnum(
         isFullandFinal,
         findEmployee.isFullandFinal,
-        ["Yes", "No"],
+        ["Yes", "No"]
       ),
 
       profile: findEmployee.profile,
     };
+
+
 
     // ============================
     // 6️⃣ Profile Image Update

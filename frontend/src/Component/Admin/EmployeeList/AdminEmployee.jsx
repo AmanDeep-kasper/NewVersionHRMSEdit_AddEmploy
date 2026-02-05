@@ -101,8 +101,6 @@ const AdminEmployee = () => {
     if (form.uan) formData.append("UANNumber", form.uan);
     if (form.pan) formData.append("PANcardNo", form.pan);
 
-    
-
     formData.append("LocationType", form.locationType);
     formData.append("allowMobileLogin", "Not Allowed");
     formData.append("status", "active");
@@ -138,90 +136,146 @@ const AdminEmployee = () => {
 
   // Edit by empolyee
 
-  const handleEmployeeEditUpdate = (info, event) => {
-    event.preventDefault();
+  // const handleEmployeeEditUpdate = (info, event) => {
+  //   event.preventDefault();
 
-    if (event.target[9].value) {
-    }
+  //   if (event.target[9].value) {
+  //   }
 
+  //   const formData = new FormData();
+
+  //   formData.append("Email", event.target[0].value.toLowerCase());
+  //   formData.append("Account", event.target[1].value);
+  //   formData.append("RoleID", event.target[2].value);
+  //   formData.append("Gender", editFormGender);
+  //   formData.append("FirstName", event.target[5].value);
+  //   // formData.append("MiddleName", event.target[6].value);
+  //   formData.append("LastName", event.target[6].value);
+  //   formData.append("DOB", event.target[7].value);
+  //   formData.append("ContactNo", event.target[8].value);
+  //   // formData.append("EmployeeCode", event.target[10].value);
+  //   formData.append("DepartmentID", event.target[9].value);
+  //   formData.append("PositionID", event.target[10].value);
+  //   formData.append("DateOfJoining", event.target[11].value);
+  //   // formData.append("profile", event.target[12].files[0]);
+  //   if (event.target[12]?.files?.length > 0) {
+  //     formData.append("profile", event.target[12].files[0]);
+  //   }
+
+  //   // formData.append(
+  //   //   "reportManager",
+  //   //   event.target[13].value === "Select your option"
+  //   //     ? ""
+  //   //     : event.target[13].value,
+  //   // );
+  //   if (event.target[13].value !== "Select your option") {
+  //     formData.append("reportManager", event.target[13].value);
+  //   }
+
+  //   // formData.append(
+  //   //   "reportHr",
+  //   //   event.target[14].value === "Select your option"
+  //   //     ? ""
+  //   //     : event.target[14].value,
+  //   // );
+
+  //   if (event.target[14].value !== "Select your option") {
+  //     formData.append("reportHr", event.target[14].value);
+  //   }
+
+  //   // formData.append("BankName", event.target[15].value || "N/A");
+  //   // formData.append("BankAccount", event.target[16].value || "N/A");
+  //   // formData.append("BankIFSC", event.target[17].value || "N/A");
+  //   // formData.append("UANNumber", event.target[18].value || "N/A");
+  //   // formData.append("PANcardNo", event.target[19].value || "N/A");
+
+  //   if (event.target[15].value)
+  //     formData.append("BankName", event.target[15].value);
+  //   if (event.target[16].value)
+  //     formData.append("BankAccount", event.target[16].value);
+  //   if (event.target[17].value)
+  //     formData.append("BankIFSC", event.target[17].value);
+  //   if (event.target[18].value)
+  //     formData.append("UANNumber", event.target[18].value);
+  //   if (event.target[19].value)
+  //     formData.append("PANcardNo", event.target[19].value);
+
+  //   formData.append("LocationType", event.target[20].value);
+  //   formData.append("allowMobileLogin", editAllowMobileLogin);
+  //   formData.append("isFullandFinal", editFullandFinal);
+  //   formData.append("status", editStatus);
+
+  //   // console.log("Submitting allowMobileLogin:", editAllowMobileLogin);
+
+  //   api
+  //     // .put(`/api/employee/${info["_id"]}`, formData, {})
+  //     // .then((res) => {
+  //     //   setTable(false);
+  //     //   setTable(true);
+  //     //   setEditForm(false);
+  //     // })
+  //     // .catch((err) => {
+  //     //   if (err.response.status === 400) {
+  //     //     alert(err.response.data);
+  //     //   }
+  //     // });
+
+  //     .put(`/api/employee/${info._id}`, formData)
+  //     .then(() => {
+  //       toast.success("Employee Updated Successfully");
+  //       setEditForm(false);
+  //       setTable(true);
+  //     })
+  //     .catch((err) => {
+  //       toast.error(err?.response?.data?.message || "Update failed");
+  //     });
+  // };
+
+  const handleEmployeeEditUpdate = (info, formState) => {
     const formData = new FormData();
 
-    formData.append("Email", event.target[0].value.toLowerCase());
-    formData.append("Account", event.target[1].value);
-    formData.append("RoleID", event.target[2].value);
-    formData.append("Gender", editFormGender);
-    formData.append("FirstName", event.target[5].value);
-    // formData.append("MiddleName", event.target[6].value);
-    formData.append("LastName", event.target[6].value);
-    formData.append("DOB", event.target[7].value);
-    formData.append("ContactNo", event.target[8].value);
-    // formData.append("EmployeeCode", event.target[10].value);
-    formData.append("DepartmentID", event.target[9].value);
-    formData.append("PositionID", event.target[10].value);
-    formData.append("DateOfJoining", event.target[11].value);
-    // formData.append("profile", event.target[12].files[0]);
-    if (event.target[12]?.files?.length > 0) {
-      formData.append("profile", event.target[12].files[0]);
+    formData.append("Email", formState.emailData.toLowerCase());
+    formData.append("Gender", formState.genderData);
+    formData.append("FirstName", formState.firstNameData);
+    formData.append("LastName", formState.lastNameData);
+    formData.append("DOB", formState.dobData);
+    formData.append("ContactNo", formState.contactNoData);
+
+    formData.append("DepartmentID", formState.departmentId);
+    formData.append("PositionID", formState.positionId);
+    formData.append("DateOfJoining", formState.dateOfJoiningData);
+
+    if (formState.profileFile) {
+      formData.append("profile", formState.profileFile);
     }
 
-    // formData.append(
-    //   "reportManager",
-    //   event.target[13].value === "Select your option"
-    //     ? ""
-    //     : event.target[13].value,
-    // );
-    if (event.target[13].value !== "Select your option") {
-      formData.append("reportManager", event.target[13].value);
+    if (formState.reportingManager) {
+      formData.append("reportManager", formState.reportingManager);
     }
 
-    // formData.append(
-    //   "reportHr",
-    //   event.target[14].value === "Select your option"
-    //     ? ""
-    //     : event.target[14].value,
-    // );
-
-    if (event.target[14].value !== "Select your option") {
-      formData.append("reportHr", event.target[14].value);
+    if (formState.reportingHr) {
+      formData.append("reportHr", formState.reportingHr);
     }
 
-    // formData.append("BankName", event.target[15].value || "N/A");
-    // formData.append("BankAccount", event.target[16].value || "N/A");
-    // formData.append("BankIFSC", event.target[17].value || "N/A");
-    // formData.append("UANNumber", event.target[18].value || "N/A");
-    // formData.append("PANcardNo", event.target[19].value || "N/A");
+    if (formState.BankNameData)
+      formData.append("BankName", formState.BankNameData);
+    if (formState.BankAccountData && formState.BankAccountData !== "N/A") {
+      formData.append("BankAccount", formState.BankAccountData);
+    }
 
-    if (event.target[15].value)
-      formData.append("BankName", event.target[15].value);
-    if (event.target[16].value)
-      formData.append("BankAccount", event.target[16].value);
-    if (event.target[17].value)
-      formData.append("BankIFSC", event.target[17].value);
-    if (event.target[18].value)
-      formData.append("UANNumber", event.target[18].value);
-    if (event.target[19].value)
-      formData.append("PANcardNo", event.target[19].value);
+    if (formState.BankIFSCData)
+      formData.append("BankIFSC", formState.BankIFSCData);
+    if (formState.UANNumberData)
+      formData.append("UANNumber", formState.UANNumberData);
+    if (formState.PANcardNoData)
+      formData.append("PANcardNo", formState.PANcardNoData);
 
-    formData.append("LocationType", event.target[20].value);
-    formData.append("allowMobileLogin", editAllowMobileLogin);
-    formData.append("isFullandFinal", editFullandFinal);
-    formData.append("status", editStatus);
-
-    // console.log("Submitting allowMobileLogin:", editAllowMobileLogin);
+    formData.append("LocationType", formState.LocationTypeData);
+    formData.append("allowMobileLogin", formState.AllowMobileLoginData);
+    formData.append("isFullandFinal", formState.fullFinal);
+    formData.append("status", formState.status);
 
     api
-      // .put(`/api/employee/${info["_id"]}`, formData, {})
-      // .then((res) => {
-      //   setTable(false);
-      //   setTable(true);
-      //   setEditForm(false);
-      // })
-      // .catch((err) => {
-      //   if (err.response.status === 400) {
-      //     alert(err.response.data);
-      //   }
-      // });
-
       .put(`/api/employee/${info._id}`, formData)
       .then(() => {
         toast.success("Employee Updated Successfully");

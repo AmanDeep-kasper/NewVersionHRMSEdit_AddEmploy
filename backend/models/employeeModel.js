@@ -19,7 +19,7 @@ const employeeSchema = new mongoose.Schema(
     FirstName: { type: String, required: true },
     LastName: { type: String },
     empID: { type: String, required: true, unique: true }, // Unique Employee ID
-    Email: { type: String, lowercase: true, trim: true,  required: true,  unique: true, }, // Email must be unique
+    Email: { type: String, lowercase: true, trim: true, required: true, unique: true, }, // Email must be unique
     Password: { type: String, required: true },
     Gender: { type: String, required: true },
     DOB: { type: Date },
@@ -58,7 +58,9 @@ const employeeSchema = new mongoose.Schema(
     PermanetAddress: { type: String, default: "N/A" },
     PresentAddress: { type: String, default: "N/A" },
     BankName: { type: String, default: "N/A" },
-    BankAccount: { type: String,  default: "N/A" },
+    // BankAccount: { type: String, sparse: true, default: "N/A" },
+    BankAccount: { type: String, sparse: true },
+
     BankIFSC: { type: String, default: "N/A" },
     UANNumber: { type: String, default: "N/A" },
     LocationType: { type: String, default: "On site" },

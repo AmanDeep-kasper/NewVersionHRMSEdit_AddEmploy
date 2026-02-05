@@ -77,21 +77,16 @@ const EmployeeForm = (props) => {
     {
       id: 1,
       pageName: "Personal Details",
-      // message: "View attendance details",
     },
     {
       id: 2,
       pageName: "Employee Details",
-      // message: "View attandance details",
     },
     {
       id: 3,
       pageName: "Bank Details",
-      // message: "View bonus and incentives",
     },
   ];
-
-  
 
   // edit by aman
   const compressImageIfSmall = async (file) => {
@@ -129,9 +124,6 @@ const EmployeeForm = (props) => {
     const hrData = rowData.filter((val) => val.Account === 2);
     setFilterHrData(hrData);
   };
-
-
-
 
   const validateForm = (currentStep) => {
     const errors = {};
@@ -275,8 +267,6 @@ const EmployeeForm = (props) => {
       return newErrors;
     });
   };
-
-
 
   // Data loading functions
   const loadEmployeeData = () => {
@@ -1280,6 +1270,7 @@ const EmployeeForm = (props) => {
               </div>
             </div>
             {/* nav btn */}
+
             {step === 1 && (
               <div className="p-2 d-flex flex-column gap-2 mt-2">
                 <div
@@ -2228,77 +2219,75 @@ export default EmployeeForm;
 
 // export default EmployeeForm;
 
+// validate code
+// --------------------------
+// Validate form
+// --------------------------
+// const validateForm = () => {
+//   const errors = {};
+//   const emailRegex = /^[a-zA-Z0-9._%+-]\.com$/;
+//   const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
+//   if (!emailRegex.test(form.email)) errors.email = "Please enter email in correct format";
+//   if (!passRegex.test(form.password))
+//     errors.password = "Password must be 8+ chars with upper, lower, number";
+//   if (!form.firstName) errors.firstName = "First name required";
+//   if (!form.lastName) errors.lastName = "Last name required";
+//   if (form.contactNo.length !== 10) errors.contactNo = "Contact No must be 10 digits";
 
-// validate code 
-  // --------------------------
-  // Validate form
-  // --------------------------
-  // const validateForm = () => {
-  //   const errors = {};
-  //   const emailRegex = /^[a-zA-Z0-9._%+-]\.com$/;
-  //   const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+//   if (form.bankName && form.bankName.length < 3) errors.bankName = "Bank Name must be at least 3 characters";
+//   if (form.bankAccount && (form.bankAccount.length < 9 || form.bankAccount.length > 16))
+//     errors.bankAccount = "Bank Account must be 9-16 digits";
+//   if (form.bankIFSC && !/^[A-Z]{4}0[A-Z0-9]{6}$/i.test(form.bankIFSC))
+//     errors.bankIFSC = "Invalid IFSC code";
+//   if (form.uan && form.uan.length !== 12) errors.uan = "UAN must be 12 digits";
+//   if (form.pan && form.pan.length !== 10) errors.pan = "PAN must be 10 chars";
 
-  //   if (!emailRegex.test(form.email)) errors.email = "Please enter email in correct format";
-  //   if (!passRegex.test(form.password))
-  //     errors.password = "Password must be 8+ chars with upper, lower, number";
-  //   if (!form.firstName) errors.firstName = "First name required";
-  //   if (!form.lastName) errors.lastName = "Last name required";
-  //   if (form.contactNo.length !== 10) errors.contactNo = "Contact No must be 10 digits";
+//   if (!form.department) errors.department = "Department required";
+//   if (!form.position) errors.position = "Position required";
+//   if (!form.doj) errors.doj = "Date of Joining required";
+//   if (!form.shift) errors.shift = "Shift required";
+//   if (!form.locationType) errors.locationType = "Location type required";
+//   if (!form.gender) errors.gender = "Gender required";
+//   if (!form.role) errors.role = "Role required";
+//   if (!form.accountAccess) errors.accountAccess = "Account access required";
 
-  //   if (form.bankName && form.bankName.length < 3) errors.bankName = "Bank Name must be at least 3 characters";
-  //   if (form.bankAccount && (form.bankAccount.length < 9 || form.bankAccount.length > 16))
-  //     errors.bankAccount = "Bank Account must be 9-16 digits";
-  //   if (form.bankIFSC && !/^[A-Z]{4}0[A-Z0-9]{6}$/i.test(form.bankIFSC))
-  //     errors.bankIFSC = "Invalid IFSC code";
-  //   if (form.uan && form.uan.length !== 12) errors.uan = "UAN must be 12 digits";
-  //   if (form.pan && form.pan.length !== 10) errors.pan = "PAN must be 10 chars";
+//   return errors;
+// };
 
-  //   if (!form.department) errors.department = "Department required";
-  //   if (!form.position) errors.position = "Position required";
-  //   if (!form.doj) errors.doj = "Date of Joining required";
-  //   if (!form.shift) errors.shift = "Shift required";
-  //   if (!form.locationType) errors.locationType = "Location type required";
-  //   if (!form.gender) errors.gender = "Gender required";
-  //   if (!form.role) errors.role = "Role required";
-  //   if (!form.accountAccess) errors.accountAccess = "Account access required";
+// // Sanitization and controlled input
+// const handleChange = (e) => {
+//   const { name, value, type, files } = e.target;
+//   let sanitizedValue = value.trimStart();
 
-  //   return errors;
-  // };
+//   if (name === "email") sanitizedValue = value.toLowerCase().trim();
+//   if (name === "firstName" || name === "lastName")
+//     sanitizedValue = value.replace(/[^a-zA-Z ]/g, "");
+//   if (name === "contactNo")
+//     sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
+//   if (name === "pan")
+//     sanitizedValue = value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
+//   if (name === "uan")
+//     sanitizedValue = value.replace(/\D/g, "").slice(0, 12);
+//   if (name === "bankAccount")
+//     sanitizedValue = value.replace(/\D/g, "").slice(0, 16);
+//   if (name === "bankIFSC")
+//     sanitizedValue = value.replace(/\s+/g, "").toUpperCase();
+//   if (type === "file") sanitizedValue = files[0];
 
-  // // Sanitization and controlled input
-  // const handleChange = (e) => {
-  //   const { name, value, type, files } = e.target;
-  //   let sanitizedValue = value.trimStart();
+//   setForm({ ...form, [name]: sanitizedValue });
 
-  //   if (name === "email") sanitizedValue = value.toLowerCase().trim();
-  //   if (name === "firstName" || name === "lastName")
-  //     sanitizedValue = value.replace(/[^a-zA-Z ]/g, "");
-  //   if (name === "contactNo")
-  //     sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
-  //   if (name === "pan")
-  //     sanitizedValue = value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
-  //   if (name === "uan")
-  //     sanitizedValue = value.replace(/\D/g, "").slice(0, 12);
-  //   if (name === "bankAccount")
-  //     sanitizedValue = value.replace(/\D/g, "").slice(0, 16);
-  //   if (name === "bankIFSC")
-  //     sanitizedValue = value.replace(/\s+/g, "").toUpperCase();
-  //   if (type === "file") sanitizedValue = files[0];
-
-  //   setForm({ ...form, [name]: sanitizedValue });
-
-  //   // Remove error for this field as soon as user fills correctly
-  //   setFormErrors((prev) => {
-  //     const newErrors = { ...prev };
-  //     // Only remove error if value is now valid
-  //     if (name === "bankName" && sanitizedValue.length >= 3) delete newErrors.bankName;
-  //     if (name === "bankAccount" && sanitizedValue.length >= 9 && sanitizedValue.length <= 16) delete newErrors.bankAccount;
-  //     if (name === "bankIFSC" && sanitizedValue.match(/^[A-Z]{4}0[A-Z0-9]{6}$/i)) delete newErrors.bankIFSC;
-  //     if (name === "uan" && sanitizedValue.length === 12) delete newErrors.uan;
-  //     if (name === "pan" && sanitizedValue.length === 10) delete newErrors.pan;
-  //     // Remove error if field is blank (optional)
-  //     if (["bankName","bankAccount","bankIFSC","uan","pan"].includes(name) && sanitizedValue === "") delete newErrors[name];
-  //     return newErrors;
-  //   });
-  // };
+//   // Remove error for this field as soon as user fills correctly
+//   setFormErrors((prev) => {
+//     const newErrors = { ...prev };
+//     // Only remove error if value is now valid
+//     if (name === "bankName" && sanitizedValue.length >= 3) delete newErrors.bankName;
+//     if (name === "bankAccount" && sanitizedValue.length >= 9 && sanitizedValue.length <= 16) delete newErrors.bankAccount;
+//     if (name === "bankIFSC" && sanitizedValue.match(/^[A-Z]{4}0[A-Z0-9]{6}$/i)) delete newErrors.bankIFSC;
+//     if (name === "uan" && sanitizedValue.length === 12) delete newErrors.uan;
+//     if (name === "pan" && sanitizedValue.length === 10) delete newErrors.pan;
+//     // Remove error if field is blank (optional)
+//     if (["bankName","bankAccount","bankIFSC","uan","pan"].includes(name) && sanitizedValue === "") delete newErrors[name];
+//     return newErrors;
+//   });
+// };
