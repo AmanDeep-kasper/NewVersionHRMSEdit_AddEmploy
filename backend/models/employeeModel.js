@@ -58,8 +58,8 @@ const employeeSchema = new mongoose.Schema(
     PermanetAddress: { type: String, default: "N/A" },
     PresentAddress: { type: String, default: "N/A" },
     BankName: { type: String, default: "N/A" },
-    // BankAccount: { type: String, sparse: true, default: "N/A" },
-    BankAccount: { type: String, sparse: true },
+    BankAccount: { type: String, sparse: true, default: "N/A" },
+    // BankAccount: { type: String, sparse: true },
 
     BankIFSC: { type: String, default: "N/A" },
     UANNumber: { type: String, default: "N/A" },

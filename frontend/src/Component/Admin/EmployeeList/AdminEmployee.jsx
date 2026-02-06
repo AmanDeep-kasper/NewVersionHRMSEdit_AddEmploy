@@ -234,7 +234,19 @@ const AdminEmployee = () => {
   const handleEmployeeEditUpdate = (info, formState) => {
     const formData = new FormData();
 
-    formData.append("Email", formState.emailData.toLowerCase());
+    // formData.append("Email", formState.emailData.toLowerCase());
+    formData.append(
+      "Email",
+      (formState.emailData || info.Email || "").toLowerCase(),
+    );
+    if (formState.accountAccess) {
+      formData.append("Account", formState.accountAccess);
+    }
+
+    if (formState.roleId) {
+      formData.append("RoleID", formState.roleId);
+    }
+
     formData.append("Gender", formState.genderData);
     formData.append("FirstName", formState.firstNameData);
     formData.append("LastName", formState.lastNameData);
@@ -270,10 +282,25 @@ const AdminEmployee = () => {
     if (formState.PANcardNoData)
       formData.append("PANcardNo", formState.PANcardNoData);
 
-    formData.append("LocationType", formState.LocationTypeData);
-    formData.append("allowMobileLogin", formState.AllowMobileLoginData);
-    formData.append("isFullandFinal", formState.fullFinal);
-    formData.append("status", formState.status);
+    // formData.append("LocationType", formState.LocationTypeData);
+    // formData.append("allowMobileLogin", formState.AllowMobileLoginData);
+    // formData.append("isFullandFinal", formState.fullFinal);
+    // formData.append("status", formState.status);
+    formData.append(
+      "LocationType",
+      formState.LocationTypeData || info.LocationType || "",
+    );
+    formData.append(
+      "allowMobileLogin",
+      formState.AllowMobileLoginData || info.allowMobileLogin || "Not Allowed",
+    );
+
+    formData.append(
+      "isFullandFinal",
+      formState.fullFinal || info.isFullandFinal || "No",
+    );
+
+    formData.append("status", formState.status || info.status || "active");
 
     api
       .put(`/api/employee/${info._id}`, formData)

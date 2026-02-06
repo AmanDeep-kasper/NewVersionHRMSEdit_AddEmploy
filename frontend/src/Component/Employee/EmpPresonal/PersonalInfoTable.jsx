@@ -54,6 +54,7 @@ const PersonalInfoTable = (props) => {
         const data = response.data;
         setPersonalInfoData(data);
         setLoading(false);
+        console.log(data)
         const temp = {
           data,
           FirstName: data["FirstName"] || "Not Available",
